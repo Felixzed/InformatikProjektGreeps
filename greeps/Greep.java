@@ -35,55 +35,63 @@ public class Greep extends Creature
     public void act()
     {
         super.act();   // do not delete! leave as first statement in act().
-        if (seePaint("purple") && !seePaint("orange")) {
-        turnHome();
-        turn (180);
+        if (getFlag(1)) {
+        turn(90-Greenfoot.getRandomNumber(180));
+        move();
+        if (atWorldEdge() || atWater()) {
+            setFlag(1, false);
         }
-        if (!getFlag(2)) {
+    }
+        if (getFlag(2)) {
+               spit ("orange");
+               loadTomato();
+               if (!atFood()) {
+                    setFlag(2, false);
+                    }
+               return;     
+                }
         if (carryingTomato()) {
             if(atShip()) {
                 dropTomato();
             }
             else {
-                 if (atWater()) {
-                 turn(45-Greenfoot.getRandomNumber(90));
+                //Hier ansetzen! Das Problem war, dass die Greeps
+                //nicht richtig "Herumirren"
+               if (atWater() || atWorldEdge()) {
+                 turn(180);
                  move();
-                 }
-                 else if (atWorldEdge()) {
-                 turn(45-Greenfoot.getRandomNumber(90));
-                 move();
+                 setFlag(1, true);
+                 return;
                  }
                  else {
                  turnHome();
-                 spit("purple");
-                 move(); }
+                 move();
+                 }
             }
         }
-        else {
+    else {
             //Flag 2 designates Greep as loader
             //Orange communicates that loader is present at this spot
           if (atFood() && !getFlag(2))       {
                if (!seePaint("orange")) {
-               setFlag(2, true);
+               move();
+               setFlag(2,true);
                spit("orange");
                }
-      }
-      else {
-        move();
-        if (atWater() || atWorldEdge()) {
-            turn(180+45-Greenfoot.getRandomNumber(90));
      }
+     else {
+     move();
+     turn(15-Greenfoot.getRandomNumber(30));
+                if (seePaint("purple") && !seePaint("orange")) {
+                //turnHome();
+                //turn (180);
+             }
+                if (atWater() || atWorldEdge()) {
+                turn(90+45-Greenfoot.getRandomNumber(90));
+             }
     }
    } 
 }
-else {                         
-spit ("orange");            
-loadTomato();
-if (!atFood()) {
-   setFlag(2, false);
-               }  
-}       
-    }
 
     /**
      * Is there any food here where we are? If so, try to load some!
