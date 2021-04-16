@@ -44,16 +44,13 @@ public class Greep extends Creature
     //Damit die Greeps nicht Feststecken
     if (getFlag(2) && getFlag(1)) {
         if (atWorldEdge() || atWater()) {
-            turn(90-Greenfoot.getRandomNumber(45));
+            turn(30-Greenfoot.getRandomNumber(15));
         }
-        //if (!carryingTomato() && (atWorldEdge() || atWater())) {
-        //    turn(-90+Greenfoot.getRandomNumber(45));       
-        //}
         //Einfacher Counter
         setMemory(getMemory()+1);
         move();
-        //Sobald Counter 20 erreicht, wieder TurnHome folgen.
-        if (getMemory() == 20) {
+        //Sobald Counter 7 erreicht, wieder TurnHome folgen.
+        if (getMemory() == 7) {
             setFlag(1, false);
             setFlag(2, false);
             setMemory(0);
@@ -88,15 +85,25 @@ public class Greep extends Creature
                 //Flag 1,2 True heisst "Herumirren"
         }
         spit("red");
+        //Rückweg mit Rot markieren
         turnHome();
         move();
         return;
     }
+    //Wenn ein Greep auf die Farbspur eines Trägers trifft, dann dieser ungefähr "Folgen" - Dies führt meist zu Tomaten. 
     if (seePaint("red")) {
         turnHome();
         turn(180);
     }
     move();
+    if (randomChance(50)) {
+        //Bewegungen etwas zufälliger machen
+        turn(1);
+    }
+    else {
+        turn(-1);
+    }
+    //Herumirren einleiten, wenn ein Greep ein Hindernis berührt.
     if (atWorldEdge() || atWater()) {
         setFlag(1,true);
         setFlag(2, true);
