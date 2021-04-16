@@ -17,6 +17,7 @@ public class Greep extends Creature
     public Greep()
     {
         this(null);
+        setMemory(0);
     }
 
     
@@ -35,63 +36,74 @@ public class Greep extends Creature
     public void act()
     {
         super.act();   // do not delete! leave as first statement in act().
-        if (getFlag(1)) {
-        turn(90-Greenfoot.getRandomNumber(180));
-        move();
+    //Entladen von Tomaten
+    if(atShip()) {
+       dropTomato();
+    }    
+    //Code für "Herumirren", also für 20 Schritte nicht TurnHome folgen.
+    //Damit die Greeps nicht Feststecken
+    if (getFlag(2) && getFlag(1)) {
         if (atWorldEdge() || atWater()) {
+            turn(90-Greenfoot.getRandomNumber(45));
+        }
+        //if (!carryingTomato() && (atWorldEdge() || atWater())) {
+        //    turn(-90+Greenfoot.getRandomNumber(45));       
+        //}
+        //Einfacher Counter
+        setMemory(getMemory()+1);
+        move();
+        //Sobald Counter 20 erreicht, wieder TurnHome folgen.
+        if (getMemory() == 20) {
+            setFlag(1, false);
+            setFlag(2, false);
+            setMemory(0);
+        }
+        return;
+    }
+    //Loader ist Flag 2,1 true
+    //Loader-Script ausführen
+    if (getFlag(2) && !getFlag(1)) {
+        spit ("orange");
+        loadTomato();
+        if (!atFood()) {
+            setFlag(2, false);
             setFlag(1, false);
         }
+        return;     
     }
-        if (getFlag(2)) {
-               spit ("orange");
-               loadTomato();
-               if (!atFood()) {
-                    setFlag(2, false);
-                    }
-               return;     
-                }
-        if (carryingTomato()) {
-            if(atShip()) {
-                dropTomato();
-            }
-            else {
-                //Hier ansetzen! Das Problem war, dass die Greeps
-                //nicht richtig "Herumirren"
-               if (atWater() || atWorldEdge()) {
-                 turn(180);
-                 move();
-                 setFlag(1, true);
-                 return;
-                 }
-                 else {
-                 turnHome();
-                 move();
-                 }
-            }
+    if (atFood() && !carryingTomato()) {
+        //Greep wird Loader, wenn er auf eine neue TomatoPile trifft.
+        if (!seePaint("orange")) {
+            setFlag(1, false);
+            setFlag(2, true);
         }
-    else {
-            //Flag 2 designates Greep as loader
-            //Orange communicates that loader is present at this spot
-          if (atFood() && !getFlag(2))       {
-               if (!seePaint("orange")) {
-               move();
-               setFlag(2,true);
-               spit("orange");
-               }
-     }
-     else {
-     move();
-     turn(15-Greenfoot.getRandomNumber(30));
-                if (seePaint("purple") && !seePaint("orange")) {
-                //turnHome();
-                //turn (180);
-             }
-                if (atWater() || atWorldEdge()) {
-                turn(90+45-Greenfoot.getRandomNumber(90));
-             }
+        return;
     }
-   } 
-}
+    if (carryingTomato()) {
+        //Sobald der Greep an ein Hindernis gelangt soll dieser "Herumirren"
+        if (atWorldEdge() || atWater()) {
+                setFlag(1,true);
+                setFlag(2, true);
+                return;
+                //Flag 1,2 True heisst "Herumirren"
+        }
+        spit("red");
+        turnHome();
+        move();
+        return;
+    }
+    if (seePaint("red")) {
+        turnHome();
+        turn(180);
+    }
+    move();
+    if (atWorldEdge() || atWater()) {
+        setFlag(1,true);
+        setFlag(2, true);
+    }
+    }
+
+
 
     /**
      * Is there any food here where we are? If so, try to load some!
