@@ -45,7 +45,7 @@ public class Greep extends Creature
         //Code für "Herumirren", also für 7 Schritte nicht TurnHome folgen.
         //Damit die Greeps nicht Feststecken
         //Herumirren heisst Flag 1 u. 2 sind True
-        if (getFlag(2) && getFlag(1)) {
+        if (getFlag(1) && getFlag(2)) {
             if (atWorldEdge() || atWater()) {
                 //Vom Wasser fern bleiben.
                 turn(30-Greenfoot.getRandomNumber(15));
@@ -62,15 +62,15 @@ public class Greep extends Creature
             }
             return;
         }
-        //Loader heisst Flag 2 true,1 false
+        //Loader heisst Flag 1 false, 2 true
         //Loader-Script ausführen
-        if (getFlag(2) && !getFlag(1)) {
+        if (!getFlag(1) && getFlag(2)) {
             spit ("orange");
             loadTomato();
             if (!atFood()) {
                 //Wenn kein Essen mehr da ist, dann Reset
-                setFlag(2, false);
                 setFlag(1, false);
+                setFlag(2, false);
             }
             return;     
         }
