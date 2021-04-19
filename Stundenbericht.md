@@ -30,7 +30,6 @@ Erster Konzept - Loader:
 Ein Loader in seinem natürlichen Habitat
 ```
 
-
 Da zwei Greeps für den Beladungsprozess nötig sind, ist das Konzept des "Loaders" entstanden, welcher an den Tomatenhaufen stehen bleibt und die Tomaten verlädt.
 Ich habe mich entschieden den Loader per Flag zu designieren, hierbei hat Flag 2 angegeben, ob der Greep ein Loader ist.
 
@@ -86,6 +85,12 @@ Ein Loader prüft ebenfalls nun, ob an seinem Standpunkt überhaupt noch verladb
 
 ![Loadershitty2](img/oldloadercode2.PNG)
 
+## Heimarbeit: 2 Std. 
+
+Experimente mit einem Ausweichsystem, in dem jeder Greep eine Farbspur hinterlässt. Jeder Greep der nun auf ein Hindernis stößt "irrt" so lange bis er auf die Farbspur eines anderen Greeps traf. Dieses System erwies sich auch als ineffizient und wurde somit verworfen.
+
+
+
 ## Heimarbeit: 4 Std. 
 
 Hier habe ich mich entschieden, das Script vollkommen neu zu schreiben, da das alte zu unleserlich wurde.
@@ -100,8 +105,19 @@ Mit den zwei gegebenen Flags sind vier Zustände möglich, in dem neuen Script f
 1-1 = Hindernis Umgehen
 Mehr hierzu auf der Projektseite
 ```
-Die Prinzipien hinter dem Sucher und dem Loader sind identisch zu dem früheren Prinzip, nun benutzen sie allerdings einen komplett neuen Algorhytmus um ein Hindernis zu umgehen, wenn ein Greep auf ein Hindernis stößt, setzt er seine Flags auf 1-1.
+
+Neues Konzept: Ausweichen auf Counter-Basis
+
+Die Prinzipien hinter dem Sucher und dem Loader sind identisch zu dem früheren Prinzip, nun benutzen sie allerdings einen komplett neuen Algorithmus um ein Hindernis zu umgehen, wenn ein Greep auf ein Hindernis stößt, setzt er seine Flags auf 1-1.
 
 ![avoidnice](img/avoidcodenew.PNG)
 
-Der Speicher des Greeps wird nun verwendet, um ein
+Der Speicher des Greeps wird nun verwendet, um einen counter zu betreiben.
+
+![avoidcodeverynice](img/avoidcode.PNG)
+
+Mit diesem neuen Code haben sich die Resultate drastisch verbessert, Greeps können nicht mehr Feststecken. Somit wird der Arbeitsablauf der Greeps nicht mehr gestört.
+
+## Heimarbeit: 3 Std. 
+
+Arbeit an Projektseite u. Stundenblog, korrigieren von Rechtschreibung u. Formatierung, Platzierung v. Bildern etc.

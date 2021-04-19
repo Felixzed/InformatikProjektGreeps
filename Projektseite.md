@@ -8,7 +8,7 @@ Hallo! Hier finden Sie meine Erklärung der Funktionsweise meiner Greeps. Ich ge
 
 ## Flags
 
-Mit den zwei Flags sind insgesamt vier Stadien möglich, letztendlich ein 2-bit Wert, diese Stadien sind:
+Mit den zwei Flags sind insgesamt vier Status möglich, letztendlich ein 2-bit Wert, diese Status sind:
 ```
 00 = (Flag 1 false : Flag 2 false)
 01 = (Flag 1 false : Flag 2 true)
