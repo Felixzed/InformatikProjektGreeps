@@ -6,9 +6,11 @@
 
 Hallo! Hier finden Sie meine Erklärung der Funktionsweise meiner Greeps. Ich gehe auf Segmente von dem Code ein, und stelle am Ende eine Kleine Testreihe vor.
 
+Greeps ist ein Programmierwettbewerb in dem man den außerirdischen Käfer, genannt "Greeps" eine künstliche Intelligenz mit Limitierungen programmieren muss, man ist limitiert auf zwei boolean-Werte und eine 8-bit Integer. Hiermit muss man versuchen die höchstmögliche Punktzahl zu erreichen, in dem man so viele Tomaten wie möglich von den zufällig auf der Karte generierten Tomatenhaufen zu dem Mutterschiff der Greeps bringt. 
+
 ## Flags
 
-Mit den zwei Flags sind insgesamt vier Status möglich, letztendlich ein 2-bit Wert, diese Status sind:
+Mit den zwei gegebenen Flags sind insgesamt vier Status möglich, letztendlich ein 2-bit Wert, diese Status sind:
 ```
 00 = (Flag 1 false : Flag 2 false)
 01 = (Flag 1 false : Flag 2 true)
