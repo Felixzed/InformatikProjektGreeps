@@ -38,7 +38,9 @@ Ich habe mich entschieden den Loader per Flag zu designieren, hierbei hat Flag 2
 
 
 Dieses Konzept erwies sich als erfolgreich, die Greeps brachten deutlich mehr Tomaten auf das Schiff. 
+
 ![Loadershitty](img/oldloadercode.PNG)
+
 ```
 Erste Ausführung des Scripts eines Loaders
 ```
