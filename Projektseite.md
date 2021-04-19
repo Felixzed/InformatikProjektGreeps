@@ -31,9 +31,9 @@ Dieser bewegt sich durchgehend nach vorne und dreht sich zufällig um ein Grad l
 Hindernisse wie Wasser oder das Ende der Welt umgeht er mithilfe der Umgehfunktion der Flags 1-1.
 
 Ein Sucher kann, wie bereits oben genannt, zum Träger oder zum Loader werden.
-Sobald ein Sucher eine rote Farbspur erkennt, dreht er sich zum Schiff und dreht sich um 180°. Da die Träger die meiste Zeit ihren Rückweg in Richtung des Schiffes gehen, führt dieser Weg meist zu mehr Tomaten.
+Sobald ein Sucher eine rote Farbspur erkennt, dreht er sich zum Schiff und dreht sich um 180°. Da die Träger die meiste Zeit ihren Rückweg in Richtung des Schiffes gehen, führt dieser Weg, wenn man ihm zurück folgt, meist zu mehr Tomaten.
 
-Mittels RandomChance erhält der Sucher etwas mehr Zufall in seiner Bewegung, damit er etwas mehr Fläche abdeckt. In jedem Arbeitstakt bewegt er sich entweder 1° gegen oder mit dem Uhrzeigersinn. 
+Mittels RandomChance erhält der Sucher etwas mehr Zufall in seiner Bewegung, damit er etwas mehr Fläche abdeckt. In jedem Arbeitstakt bewegt er sich entweder 1° gegen- oder mit dem Uhrzeigersinn. 
 
 ![ScoutingCode](img/scoutcode.PNG)
 
