@@ -33,6 +33,8 @@ Hindernisse wie Wasser oder das Ende der Welt umgeht er mithilfe der Umgehfunkti
 Ein Sucher kann, wie bereits oben genannt, zum Träger oder zum Loader werden.
 Sobald ein Sucher eine rote Farbspur erkennt, dreht er sich zum Schiff und dreht sich um 180°. Da die Träger die meiste Zeit ihren Rückweg in Richtung des Schiffes gehen, führt dieser Weg meist zu mehr Tomaten.
 
+Mittels RandomChance erhält der Sucher etwas mehr Zufall in seiner Bewegung, damit er etwas mehr Fläche abdeckt. In jedem Arbeitstakt bewegt er sich entweder 1° gegen oder mit dem Uhrzeigersinn. 
+
 ![ScoutingCode](img/scoutcode.PNG)
 
 ## Hindernisse
