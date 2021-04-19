@@ -153,4 +153,12 @@ public class Greep extends Creature
         else
             return "greep.png";
     }
+    
+    
+    
+    
+    
+    
+    
+    
 }
